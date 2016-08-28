@@ -92,3 +92,15 @@ TypeEff.prototype.combineWith = function (typeEff) {
 
   return result;
 };
+
+// Get the best type effectivenes when compared with a partner and return
+// result. This gives the best case scenario against every type.
+TypeEff.prototype.bestCaseWith = function (typeEff) {
+  let result = {};
+
+  for (let type in typeChart) {
+    result[type] = Math.min(this[type], typeEff[type]);
+  }
+
+  return result;
+};
