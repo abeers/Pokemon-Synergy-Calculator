@@ -65,20 +65,30 @@ const typeChart = {normal: normal, fire: fire, water: water, grass: grass,
 
 // TypeEff object constructor
 const TypeEff = function() {
-  let result = {};
   for (let i = 0; i < arguments.length; i++) {
 
     let currentType = typeChart[arguments[i]];
 
     for (let type in currentType) {
-      if(result[type] === undefined) {
-        result[type] = currentType[type];
+      if(this[type] === undefined) {
+        this[type] = currentType[type];
       }
       else {
-        result[type] *= currentType[type];
+        this[type] *= currentType[type];
       }
     }
 
   }
+};
+
+// Combine a TypeEff object with another and return result. This gives the
+// pair's combined effectiveness as if they were the same Pokemon.
+TypeEff.prototype.combineWith = function (typeEff) {
+  let result = {};
+
+  for (let type in typeChart) {
+    result[type] = this[type] * typeEff[type];
+  }
+
   return result;
 };
