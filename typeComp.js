@@ -56,7 +56,9 @@ const flying = {normal: 1, fire: 1, water: 1, grass: 0.5, electric: 2, ice: 2,
                 bug: 0.5, poison: 1, fighting: 0.5, psychic: 1, ghost: 1, dark: 1,
                 rock: 2, ground: 0, steel: 1, dragon: 1, fairy: 1, flying: 1};
 
-// Combine types into one array.
-const typeArray = [normal, fire, water, grass, electric, ice, bug, poison,
-                   fighting, psychic, ghost, dark, rock, ground, steel, dragon,
-                   fairy, flying];
+// Combine types into one object.
+const typeChart = {normal: normal, fire: fire, water: water, grass: grass,
+                   electric: electric, ice: ice, bug: bug, poison: poison,
+                   fighting: fighting, psychic: psychic, ghost: ghost, dark: dark,
+                   rock: rock, ground: ground, steel: steel, dragon: dragon,
+                   fairy: fairy, flying: flying};
