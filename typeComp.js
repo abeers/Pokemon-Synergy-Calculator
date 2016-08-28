@@ -62,3 +62,23 @@ const typeChart = {normal: normal, fire: fire, water: water, grass: grass,
                    fighting: fighting, psychic: psychic, ghost: ghost, dark: dark,
                    rock: rock, ground: ground, steel: steel, dragon: dragon,
                    fairy: fairy, flying: flying};
+
+// TypeEff object constructor
+const TypeEff = function() {
+  let result = {};
+  for (let i = 0; i < arguments.length; i++) {
+
+    let currentType = typeChart[arguments[i]];
+
+    for (let type in currentType) {
+      if(result[type] === undefined) {
+        result[type] = currentType[type];
+      }
+      else {
+        result[type] *= currentType[type];
+      }
+    }
+
+  }
+  return result;
+};
