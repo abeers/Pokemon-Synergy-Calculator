@@ -84,7 +84,7 @@ const TypeEff = function() {
 // Combine a TypeEff object with another and return result. This gives the
 // pair's combined effectiveness as if they were the same Pokemon.
 TypeEff.prototype.combineWith = function (typeEff) {
-  let result = {};
+  let result = new TypeEff();
 
   for (let type in typeChart) {
     result[type] = this[type] * typeEff[type];
@@ -96,7 +96,7 @@ TypeEff.prototype.combineWith = function (typeEff) {
 // Get the best type effectivenes when compared with a partner and return
 // result. This gives the best case scenario against every type.
 TypeEff.prototype.bestCaseWith = function (typeEff) {
-  let result = {};
+  let result = new TypeEff();
 
   for (let type in typeChart) {
     result[type] = Math.min(this[type], typeEff[type]);
